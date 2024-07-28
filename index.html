@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-in">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="Src/script.js"></script>
+    <script>
+        
+    </script>
+
+    <style>
+       div a {
+           overflow: auto;
+           color: black;
+            text-decoration: none;
+            height: 350px;
+        }
+
+        .modal-body {
+            max-height: 300px;
+
+        }
+
+       .cartItems td {
+            vertical-align: middle;
+
+        }
+
+        .main-products:hover{
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body onload="bodyLoad()" class="container-fluid">
+    <header class="d-flex align-items-center justify-content-between bg-success p-2 m-1">
+        <div>
+            <h2>Shopper</h2>
+        </div>
+        <div>
+            <nav>
+                <span class="me-4 fs-4"><a href="javascript:loadItems(`https://fakestoreapi.com/products`)">Home</a></span>
+                <span class="me-4 fs-4"><a href="javascript:loadItems(`https://fakestoreapi.com/products/category/electronics`)">Electronics</a></span>
+                <span class="me-4 fs-4"><a href="javascript:loadItems(`https://fakestoreapi.com/products/category/jewelery`)">Jewelery</a></span>
+                <span class="me-4 fs-4"><a href="javascript:loadItems(`https://fakestoreapi.com/products/category/men's clothing`)">Men's Clothing</a></span>
+                <span class="me-4 fs-4"><a href="javascript:loadItems(`https://fakestoreapi.com/products/category/women's clothing`)">Women's Clothing</a></span>
+            </nav>
+        </div>
+
+        <div>
+            <button data-bs-target="#popup" data-bs-toggle="modal" class="btn btn-warning text-white fs-5">Your Cart
+                <span class="bi bi-cart-fill"></span><span class="badge bg-danger" id="badgeCount"></span></button>
+            <div class="modal fade" id="popup">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Your Cart</h3>
+                            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body overflow-auto">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Preview</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItems">
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="fw-bold fs-4 me-3" id="price"></span>
+                            <button class="btn btn-warning" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="row mt-4">
+        <nav class="col-2">
+            <label class="form-label fs-4">Select Categories</label>
+            <select onchange="changeCategory()" class="form-select" id="lstCategories">
+
+            </select>
+        </nav>
+
+        <main class="col-10 d-flex overflow-auto flex-wrap" style="height: 600px;" id="main">
+
+        </main>
+    </section>
+    <section id="product">
+
+    </section>
+
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
